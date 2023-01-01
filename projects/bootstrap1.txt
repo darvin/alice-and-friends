@@ -1,0 +1,18 @@
+
+create an application using typescript/nodejs and typescript/react. it should read configuration file bots.json, for example:
+{"Alice":{"prompts":["prompts/alice_init.txt"], "connections":["Bob","Bart"]}, "Bob":{"prompts":["prompts/bob_init.txt"], "connections":["Alice","chrome"]}, "Bart":{"prompts":["prompts/bart_init.txt"], "connections":["Alice","bash"]}}. Validate it: check that all listed bots and files exist. Note special non-bot connection 'bash', other valid options are 'chrome' (to browser JS repl), 'nodejs' (to nodeJS repl), 'tsnode' (to typescript repl), 'sqlite'. For each listed bot it should create a session  using async ChatGPTAPIBrowser.initSession() from chatgpt package, and then communicate with those bots using async method .sendMessage(string), that returns object with .response.
+first message to each bot contained in .prompts[0] of bots.json. When response is received, send  .prompts[1] (if it exists) and so on. Then, route messages between bots with following rules:
+1. if bot is connected to more than one other bot, it uses following formats for outgoing (OUT) and incoming (IN) messages ("Bob" | "Bart" is just example, for bot connected to Bob and Bart):
+<IN> ::= <submessages>
+<OUT> ::= <submessages> <optionalMORE>
+<submessages> ::= <submessage> |  <submessage> <submessages>
+<optionalMORE> ::= "" | "{MORE}"
+<submessage> ::= "To: " <recipient> <newline> <multiline>
+<recipient> ::= "Bob" | "Bart"
+<newline> ::= "\n"
+<multiline> ::= <line> | <line> <multiline>
+<line> ::= any printable character except "\n"
+2. If bot is connected to one other bot and special REPL environment, then all its messages are routed to REPL without changes, and messages from REPL are routed to it without changes; messages from it that are comments in language of REPL with >> << marks (for example, /* >> message << */ for javascript) are routed to the other bot that bot is connected to; messages from the bot that bot is connected to are wrapped into << >> and comments  (for example, /* << message >> */ for javascript)
+log all messages with From/To to console.
+use mongoose to store all messages. include datestamps, from/to, pointers on message which it was a response on. 
+display all messages in react app location with chat like interface, with separate chat for each bot
