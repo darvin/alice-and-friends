@@ -1,11 +1,23 @@
-program ::= out | in ;
+program ::= omessage | imessage ;
+omessage ::= ( omail %w* )+ %w* optmore? %w* ;
 optmore ::= "{MORE}" ;
-out ::= omsgs optmore? ;
-in ::= imsgs ;
-omsgs ::= omsg | omsg omsgs ;
-imsgs ::= imsg | imsg imsgs ;
-omsg ::= "To: " recipient "\n" !( "To: " )* ;
-recipient ::= team ;
-imsg ::= "From: " sender "\n" !( "From: " )* ;
-sender ::= team | "User" ;
-team ::= "Bob" | "Brandon" | "Bart" | "Eve" ;
+
+omail ::=  "To:" %w* ...name %w* body ;
+
+imessage ::= ( imail %w* )+ ;
+
+imail ::=  "From:" %w* ...name %w* body ;
+
+
+body ::= %"\n"* ( line %"\n"* )+ ;
+  line ::= ...any* ;
+
+name ::= ...( letter | digit | "_" )+ ;
+  letter ::= "a"->"z" | "A"->"Z" ;
+  digit ::= "0"->"9" ;
+
+# Whitespace
+w ::= " " | "\t" | "\n" | "\r" ;
+
+# Consumes a single wild character
+any ::= !"" ;

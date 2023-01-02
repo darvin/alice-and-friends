@@ -1,13 +1,10 @@
 #!/usr/bin/env ts-node
 
 require('dotenv').config()
-console.log(process.env)
 
 
 const OPENAI_AUTH = function(input):  { login: string, password: string }[] {
-
   const output: { login: string, password: string }[] = [];
-
   for (const key in input) {
     if (key.startsWith('OPENAI_LOGIN_')) {
       const login = input[key] as string;
