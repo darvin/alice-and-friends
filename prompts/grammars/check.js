@@ -34,7 +34,7 @@ let result = BNF.parse(myGrammar);
 let tree = Compile(result);
 console.log(tree, result);
 
-let msgs = [`To: Bob
+let msgs = [`📧To: Bob
 Hello Bob! How are you today?
 sdf
 
@@ -47,7 +47,8 @@ Hi Eve, have you had a chance to review the reports I sent over yesterday?
 sdfdsf
 `,
 `From: Bob
-Hello Bob! How are you today?`,
+Hello Bob! How are you today?
+`,
 `From: Bob
 Hello Bob! How are you today?
 sdfdf`
@@ -56,7 +57,7 @@ sdfdf`
 Hello Bob! How are you today?
 sdfdf
 `,
-`To: Bob
+`📧To: Bob
 Hello Bob! How are you today?
 
 To: Brandon
@@ -69,10 +70,24 @@ Hello Bob! How are you today?
 
 From: Brandon
 Hi Brandon! Just wanted to let you know that the meeting has been moved to 2pm.
-`];
+`,
+`sqlite>Blah`,
+`sqlite>`,
+`🖥️ hi`,
+];
 
-for (var i = msgs.length - 1; i >= 0; i--) {
-	console.log(tree.parse(msgs[i]).type);
+for (const msg of msgs) {
+	let r = tree.parse(msg);
+	let t = r.value ? r.value[0].type : null;
+	if (t) {
+		console.log(t);
+	} else {
+		console.error("\n\n");
+		console.error(msg);
+		console.error(r);
+		console.error("\n\n");
+
+	}
 }
 
 // Define a function that generates random text based on the syntax tree
@@ -81,7 +96,7 @@ function generateRandomText(node) {
 }
 
 // Generate random text
-const text = generateRandomText(tree);
-// Print the generated text
-console.log(text);
+// const text = generateRandomText(tree);
+// // Print the generated text
+// console.log(text);
 

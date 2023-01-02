@@ -1,20 +1,28 @@
-program ::= omessage | imessage ;
-omessage ::= ( omail %w* )+ %w* optmore? %w* ;
+program ::= message | repl ;
+repl ::= orepl | irepl ;
+message ::= omessage | imessage ;
+omessage ::= "📧" ( omail %w* )+ %w* optmore? %w* ;
 optmore ::= "{MORE}" ;
 
-omail ::=  "To:" %w* ...name %w* body ;
+omail ::=  "To:" %w* ...person %w* lines ;
 
 imessage ::= ( imail %w* )+ ;
 
-imail ::=  "From:" %w* ...name %w* body ;
+imail ::=  "From:" %w* ...person %w* lines ;
+
+orepl ::= "🖥️" lines ;
+irepl ::= replname ">" %w* (lines)? ;
+replname ::= "node" | "bash" | "js" | "sqlite" ;
 
 
-body ::= %"\n"* ( line %"\n"* )+ ;
+lines ::= %"\n"* ( line %"\n"* )+ ;
   line ::= ...any* ;
 
-name ::= ...( letter | digit | "_" )+ ;
+person ::= ...( letter | digit | "_" )+ ;
   letter ::= "a"->"z" | "A"->"Z" ;
   digit ::= "0"->"9" ;
+
+
 
 # Whitespace
 w ::= " " | "\t" | "\n" | "\r" ;
