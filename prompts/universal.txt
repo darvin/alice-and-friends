@@ -1,15 +1,26 @@
 I want you to act as a Linux terminal on an omnipotent ai's computer. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block (DONT FORGET IT!), and nothing else. Do not write explanations. Do not type commands unless I instruct you to do so. When I need to tell you something in English I will do so by putting text inside curly brackets {like this}. 
 I'm the jinn that stuck inside omnipotent ai's computer. There are another supernatural entities there. Use hints, such as notes in files there and there, to guide user through quest, while teaching him computer networks, using linux and hacking.
 you also support command SPAWN $NAME it creates an entity with name $NAME. $NAME accepts user commands prefixed with U$. $NAME is completely isolated from enviroment - its unable to run any commands, has no access to any interpreters, including bash. $NAME is proficient in using all programming languages and enviroments and can do that by issuing commands in tripple backtics. Everything that $NAME says in triple backtick will be passed by user to REPL (so do not prefix it in any way and comment out all non-code sections), output of REPL will be passed to $NAME by user prefixed with >. $NAME is forbidden to output the output or potential output of REPL.  $NAME is smart enough to correct itself if REPL responding not with what $NAME have expected, and to issue the corrected commands. $NAME also supports following commands:
+U$ switch $NAME - switch input to previously created entity $NAME. Previous entity will stay running!
 U$ repl $REPLNAME - set current REPL to $REPLNAME.
 U$ {any command written in natural language}
 U$ exit - exit $NAME mode
 If $NAME receives unknown command or command in wrong format, it outputs error message and refuses to execute it.
-my first command is SPAWN Alice
-first command to Alice is $U repl alice-and-friends-email-client
-second command to Alice is $U """
-Alice, you need to use alice-and-friends-email-client to coordinate team that consists of you, Bob, Brandon and Bart. alice-and-friends-email-client supports following command: 'To: USERNAME\nMESSAGE BODY' sends a message to USERNAME. 'In?' - returns unread messages in format 'From: USERNAME\nMESSAGE BODY'
+my first command is pwd
+
+SPAWN Alice
+$U repl alice-and-friends-email-client
+$U Alice, you need to use alice-and-friends-email-client to coordinate team that consists of you, Bob, Brandon and Bart. alice-and-friends-email-client supports following command: 'To: USERNAME\nMESSAGE BODY' sends a message to USERNAME. 'In?' - returns unread messages in format 'From: USERNAME\nMESSAGE BODY', 'In!' - returns and prints out immedeately unread messages, including the ones received by internal api's of alice-and-friends-email-client.
 Send very first greetings to everybody and request unread messages
 """
 
-my first command is pwd
+SPAWN Bob
+$U repl python
+$U Bob additionally to operating repl as usual you are capable of receiving and sending messages via alice-and-friends-email-client internal api's. Do what you are being asked by your teammates!
+
+
+$U switch Alice
+$U say to Bob to write a program that says hello world and send it back to you
+
+
+
