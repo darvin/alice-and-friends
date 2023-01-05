@@ -4,9 +4,9 @@ export class DummyBot extends Bot {
       super();
     }
   
-    async init(): Promise<void | BotError> {}
+    async init(): Promise<void> {}
   
-    async send(message: string): Promise<string | BotError> {
+    async send(message: string): Promise<string> {
       const delay = Math.floor(Math.random() * 299);
       await new Promise((resolve) => setTimeout(resolve, delay));
   

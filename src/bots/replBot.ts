@@ -8,7 +8,7 @@ export class REPLBot extends Bot {
     super();
   }
 
-  async init(): Promise<void | BotError> {
+  async init(): Promise<void> {
     try {
         this.process = new SubProcess(this.path, this.argv);
       } catch (error) {
@@ -49,7 +49,7 @@ export class REPLBot extends Bot {
     }
 
 
-  async send(message: string): Promise<string | BotError> {
+  async send(message: string): Promise<string> {
     if (!this.process) {
       throw new Error("REPLBot process not initialized");
     }

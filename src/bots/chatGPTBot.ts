@@ -5,8 +5,8 @@ export class ChatGPTBot extends Bot {
       super();
     }
   
-    async init(): Promise<void | BotError> {}
-    async send(message: string): Promise<string | BotError> {
+    async init(): Promise<void> {}
+    async send(message: string): Promise<string> {
         return "";
     }
   }

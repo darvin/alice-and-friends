@@ -1,0 +1,15 @@
+import { Bot } from "./bot";
+export class EchoBot extends Bot {
+    name;
+    constructor(name) {
+        super();
+        this.name = name;
+    }
+    async init() { }
+    async send(message) {
+        const delay = Math.floor(Math.random() * 299);
+        await new Promise((resolve) => setTimeout(resolve, delay));
+        return message;
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZWNob0JvdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uL3NyYy9ib3RzL2VjaG9Cb3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLEdBQUcsRUFBWSxNQUFNLE9BQU8sQ0FBQztBQUN0QyxNQUFNLE9BQU8sT0FBUSxTQUFRLEdBQUc7SUFDVDtJQUFuQixZQUFtQixJQUFZO1FBQzdCLEtBQUssRUFBRSxDQUFDO1FBRFMsU0FBSSxHQUFKLElBQUksQ0FBUTtJQUUvQixDQUFDO0lBRUQsS0FBSyxDQUFDLElBQUksS0FBbUIsQ0FBQztJQUU5QixLQUFLLENBQUMsSUFBSSxDQUFDLE9BQWU7UUFDeEIsTUFBTSxLQUFLLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsTUFBTSxFQUFFLEdBQUcsR0FBRyxDQUFDLENBQUM7UUFDOUMsTUFBTSxJQUFJLE9BQU8sQ0FBQyxDQUFDLE9BQU8sRUFBRSxFQUFFLENBQUMsVUFBVSxDQUFDLE9BQU8sRUFBRSxLQUFLLENBQUMsQ0FBQyxDQUFDO1FBRTNELE9BQU8sT0FBTyxDQUFDO0lBQ2pCLENBQUM7Q0FDRiJ9
