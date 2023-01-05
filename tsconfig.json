@@ -1,5 +1,4 @@
 {
- 
   "compilerOptions": {
     "module": "ESNext",
     "esModuleInterop": true,
@@ -15,13 +14,10 @@
     "inlineSourceMap": true
   },
   "ts-node": {
-      "esm": true,
-      "experimentalSpecifierResolution": "node"
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
   },
   "lib": ["esnext"],
   "exclude": ["node_modules", "build"],
-  "include": [
-    "src/**/*.ts",
-    "test/**/*.ts"
-  ]
+  "include": ["src/**/*.ts", "test/**/*.ts"]
 }

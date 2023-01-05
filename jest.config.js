@@ -5,7 +5,7 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 
 export default {
-  preset: 'ts-jest/presets/default-esm', // or other ESM presets
+  preset: "ts-jest/presets/default-esm", // or other ESM presets
   moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
   moduleDirectories: ["node_modules", "src"],
   moduleNameMapper: {
@@ -17,14 +17,14 @@ export default {
 
     // '^.+\\.[tj]sx?$' to process js/ts with `ts-jest`
     // '^.+\\.m?[tj]sx?$' to process js/ts/mjs/mts with `ts-jest`
-    '^.+\\.tsx?$': [
-      'ts-jest',
+    "^.+\\.tsx?$": [
+      "ts-jest",
       {
         useESM: true,
       },
     ],
   },
-  testEnvironment: 'node',
+  testEnvironment: "node",
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 

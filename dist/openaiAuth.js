@@ -1,11 +1,11 @@
-import * as dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 dotenv.config();
 const OPENAI_AUTH = (function (input) {
   const output = [];
   for (const key in input) {
-    if (key.startsWith('OPENAI_LOGIN_')) {
+    if (key.startsWith("OPENAI_LOGIN_")) {
       const login = input[key];
-      const passwordKey = key.replace('OPENAI_LOGIN_', 'OPENAI_PASS_');
+      const passwordKey = key.replace("OPENAI_LOGIN_", "OPENAI_PASS_");
       const password = input[passwordKey];
       output.push({ login, password });
     }
@@ -13,7 +13,7 @@ const OPENAI_AUTH = (function (input) {
   return output;
 })(process.env);
 console.log(OPENAI_AUTH);
-const world = 'world';
+const world = "world";
 export function hello(who = world) {
   return `Hello ${who}! `;
 }

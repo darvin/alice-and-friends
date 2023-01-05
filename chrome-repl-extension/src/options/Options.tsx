@@ -1,6 +1,6 @@
-import React from 'react';
-import logo from '../logo.svg';
-import './Options.css';
+import React from "react";
+import logo from "../logo.svg";
+import "./Options.css";
 
 function Options() {
   return (
