@@ -1,3 +1,7 @@
 %U c write an abstract class Bot with subclasses ChatGPTBot , DummyBot , DBReplayBot , REPL bot. Bot should provide factory for instanstiating objects of subclasses
 %U c add asyncronous initialization method to Bot class. Add name:string to all classes constructors except for REPLBot, credenticals (type OpenAICredentials = {readonly login: string;readonly password: string;} ) to ChatGPTBot, path:string and argv:string[] to REPLBot
 %U c factory method of Bot should take a dictionary with parameters, one of field of which is 'type' and pass it to subclass constructors. add async function send(string)=>string|BotError. init should return Promise<void|BotError>. write stubs. output code in chunks wait for me to say continue
+%U c lets write a code for DummyBot. it should respond asyncroniously after random 20-200 ms pause. its response should include its name, some smart variation on the input, and if math expression is in the input - its result. you are allowed to use any libraries
+%U c try much better - output of this chat bot should feel more natural!
+%U c add smart variation to the message
+write a test for DummyBot
