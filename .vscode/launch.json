@@ -12,14 +12,37 @@
                 "<node_internals>/**"
             ],
             "runtimeExecutable": "node",
-            "runtimeArgs": ["--loader", "ts-node/esm", "--nolazy", "-r", "ts-node/register/transpile-only"],
-      
-      
+            "runtimeArgs": [
+                "--loader",
+                "ts-node/esm",
+                "--nolazy",
+                "-r",
+                "ts-node/register/transpile-only"
+            ],
             "program": "${workspaceFolder}/src/index.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": [
                 "${workspaceFolder}/build/**/*.js"
             ]
+        },
+        {
+            "type": "node",
+            "name": "vscode-jest-tests.v2",
+            "request": "launch",
+            "args": [
+                "jest",
+                "--",
+                "--runInBand",
+                "--watchAll=false",
+                "--testNamePattern",
+                "${jest.testNamePattern}",
+                "--runTestsByPath",
+                "${jest.testFile}"
+            ],
+            "cwd": "/Users/standard/SRC/alice-and-friends",
+            "internalConsoleOptions": "neverOpen",
+            // "disableOptimisticBPs": true,
+            "runtimeExecutable": "npx"
         }
     ]
 }
