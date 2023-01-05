@@ -1,4 +1,4 @@
-import { Bot, BotError } from "./bot";
+import { Bot, BotError } from './bot';
 
 export class DBReplayBot extends Bot {
   constructor(public name: string) {
@@ -7,6 +7,6 @@ export class DBReplayBot extends Bot {
 
   async init(): Promise<void> {}
   async send(message: string): Promise<string> {
-    return "";
+    return '';
   }
 }

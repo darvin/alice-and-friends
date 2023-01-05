@@ -1,4 +1,4 @@
-import { Bot, BotError } from "./bot";
+import { Bot, BotError } from './bot';
 export class EchoBot extends Bot {
   constructor(public name: string) {
     super();

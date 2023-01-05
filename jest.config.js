@@ -5,26 +5,26 @@
 /** @type {import('ts-jest').JestConfigWithTsJest} */
 
 export default {
-  preset: "ts-jest/presets/default-esm", // or other ESM presets
-  moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
-  moduleDirectories: ["node_modules", "src"],
+  preset: 'ts-jest/presets/default-esm', // or other ESM presets
+  moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
+  moduleDirectories: ['node_modules', 'src'],
   moduleNameMapper: {
-    "\\.(css|less|scss)$": "identity-obj-proxy",
+    '\\.(css|less|scss)$': 'identity-obj-proxy',
   },
 
   transform: {
-    "^.+\\.(js|jsx)$": "babel-jest",
+    '^.+\\.(js|jsx)$': 'babel-jest',
 
     // '^.+\\.[tj]sx?$' to process js/ts with `ts-jest`
     // '^.+\\.m?[tj]sx?$' to process js/ts/mjs/mts with `ts-jest`
-    "^.+\\.tsx?$": [
-      "ts-jest",
+    '^.+\\.tsx?$': [
+      'ts-jest',
       {
         useESM: true,
       },
     ],
   },
-  testEnvironment: "node",
+  testEnvironment: 'node',
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -52,7 +52,7 @@ export default {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
+  coverageProvider: 'v8',
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -175,16 +175,16 @@ export default {
 
   // The glob patterns Jest uses to detect test files
   testMatch: [
-    "**/__tests__/**/*.[jt]s?(x)",
+    '**/__tests__/**/*.[jt]s?(x)',
     //   "**/?(*.)+(spec|test).[tj]s?(x)"
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   testPathIgnorePatterns: [
-    "/dist/",
-    "/frontend/",
-    "/chrome-repl-extension/",
-    "/node_modules/",
+    '/dist/',
+    '/frontend/',
+    '/chrome-repl-extension/',
+    '/node_modules/',
   ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files

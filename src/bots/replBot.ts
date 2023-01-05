@@ -1,5 +1,5 @@
-import { Bot, BotError } from "./bot";
-import { SubProcess } from "teen_process";
+import { Bot, BotError } from './bot';
+import { SubProcess } from 'teen_process';
 
 export class REPLBot extends Bot {
   private process?: SubProcess;
@@ -18,25 +18,25 @@ export class REPLBot extends Bot {
       if (stdout || stderr) return true;
       return false;
     });
-    this.process.on("exit", (code: number, signal: string) => {
+    this.process.on('exit', (code: number, signal: string) => {
       // if we get here, all we know is that the proc exited
       console.log(`exited with code ${code} from signal ${signal}`);
       // exited with code 127 from signal SIGHUP
     });
 
-    this.process.on("stop", (code: number, signal: string) => {
+    this.process.on('stop', (code: number, signal: string) => {
       // if we get here, we know that we intentionally stopped the proc
       // by calling proc.stop
       console.log(`stopped with code ${code} from signal ${signal}`);
     });
 
-    this.process.on("end", (code: number, signal: string) => {
+    this.process.on('end', (code: number, signal: string) => {
       // if we get here, we know that the process stopped outside of our control
       // but with a 0 exit code
       console.log(`ended with code ${code} from signal ${signal}`);
     });
 
-    this.process.on("die", (code: number, signal: string) => {
+    this.process.on('die', (code: number, signal: string) => {
       // if we get here, we know that the process stopped outside of our control
       // with a non-zero exit code
       console.log(`died with code ${code} from signal ${signal}`);
@@ -50,13 +50,13 @@ export class REPLBot extends Bot {
 
   async send(message: string): Promise<string> {
     if (!this.process) {
-      throw new Error("REPLBot process not initialized");
+      throw new Error('REPLBot process not initialized');
     }
 
     return new Promise<string>((resolve, reject) => {
       this.process!.proc!.stdin!.write(`${message}\n`);
-      this.process!.on("lines-stdout", (lines: string[]) => {
-        resolve(lines.join("\n"));
+      this.process!.on('lines-stdout', (lines: string[]) => {
+        resolve(lines.join('\n'));
       });
     });
   }

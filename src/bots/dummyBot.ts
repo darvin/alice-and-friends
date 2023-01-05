@@ -1,4 +1,4 @@
-import { Bot, BotError } from "./bot";
+import { Bot, BotError } from './bot';
 export class DummyBot extends Bot {
   constructor(public name: string) {
     super();
@@ -11,7 +11,7 @@ export class DummyBot extends Bot {
     await new Promise((resolve) => setTimeout(resolve, delay));
 
     // if the message is a math expression, try to evaluate it and include the result in the response
-    let response = "";
+    let response = '';
     try {
       const result = eval(message); // eslint-disable-line no-eval
       response += `The result is ${result}. `;
@@ -22,14 +22,14 @@ export class DummyBot extends Bot {
     // add a smart variation to the message
     const variations = [
       "That's interesting.",
-      "I see what you mean.",
-      "I never thought of it that way.",
-      "Can you elaborate on that?",
+      'I see what you mean.',
+      'I never thought of it that way.',
+      'Can you elaborate on that?',
       "That's a good point.",
-      "I agree.",
-      "I disagree.",
-      "Could you give an example?",
-      "Can you explain that in more detail?",
+      'I agree.',
+      'I disagree.',
+      'Could you give an example?',
+      'Can you explain that in more detail?',
       "I'm not sure I understand. Could you clarify?",
     ];
     const variation = variations[Math.floor(Math.random() * variations.length)];

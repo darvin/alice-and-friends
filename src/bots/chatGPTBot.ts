@@ -1,5 +1,5 @@
-import { Bot, BotError } from "./bot";
-import { OpenAICredentials } from "./openaiAuth";
+import { Bot, BotError } from './bot';
+import { OpenAICredentials } from './openaiAuth';
 export class ChatGPTBot extends Bot {
   constructor(public name: string, public credentials: OpenAICredentials) {
     super();
@@ -7,6 +7,6 @@ export class ChatGPTBot extends Bot {
 
   async init(): Promise<void> {}
   async send(message: string): Promise<string> {
-    return "";
+    return '';
   }
 }
