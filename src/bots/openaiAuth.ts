@@ -1,13 +1,13 @@
 #!/usr/bin/env ts-node
 
 import * as dotenv from 'dotenv';
-dotenv.config()
+dotenv.config();
 
 export type OpenAICredentials = {
   readonly login: string;
   readonly password: string;
-}
-const OPENAI_AUTH = function(input):  { login: string, password: string }[] {
+};
+const OPENAI_AUTH = (function (input): { login: string; password: string }[] {
   const output: OpenAICredentials[] = [];
   for (const key in input) {
     if (key.startsWith('OPENAI_LOGIN_')) {
@@ -17,11 +17,10 @@ const OPENAI_AUTH = function(input):  { login: string, password: string }[] {
       output.push({ login, password });
     }
   }
-  return output
-}(process.env)
+  return output;
+})(process.env);
 
 console.log(OPENAI_AUTH);
-
 
 const world = 'world';
 
