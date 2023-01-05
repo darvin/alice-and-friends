@@ -1,0 +1,3 @@
+%U c write an abstract class Bot with subclasses ChatGPTBot , DummyBot , DBReplayBot , REPL bot. Bot should provide factory for instanstiating objects of subclasses
+%U c add asyncronous initialization method to Bot class. Add name:string to all classes constructors except for REPLBot, credenticals (type OpenAICredentials = {readonly login: string;readonly password: string;} ) to ChatGPTBot, path:string and argv:string[] to REPLBot
+%U c factory method of Bot should take a dictionary with parameters, one of field of which is 'type' and pass it to subclass constructors. add async function send(string)=>string|BotError. init should return Promise<void|BotError>. write stubs. output code in chunks wait for me to say continue

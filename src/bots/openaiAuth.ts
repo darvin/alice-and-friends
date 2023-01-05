@@ -3,7 +3,7 @@
 import * as dotenv from 'dotenv';
 dotenv.config()
 
-type OpenAICredentials = {
+export type OpenAICredentials = {
   readonly login: string;
   readonly password: string;
 }
