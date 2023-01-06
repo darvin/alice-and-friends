@@ -35,7 +35,7 @@
         "--runTestsByPath",
         "${jest.testFile}"
       ],
-      "cwd": "/Users/standard/SRC/alice-and-friends",
+      "cwd": "${workspaceFolder}",
       "internalConsoleOptions": "neverOpen",
       // "disableOptimisticBPs": true,
       "runtimeExecutable": "npx"

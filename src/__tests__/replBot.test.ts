@@ -1,6 +1,6 @@
 import { REPLBot } from '../bots/replBot';
 test('REPL bot runs python interpreter and sends messages to stdin and receives responses from stdout', async () => {
-  const bot = new REPLBot('/usr/bin/python3', ['-u', '-i']);
+  const bot = new REPLBot('testreplbot', '/usr/bin/python3', ['-u', '-i']);
   await bot.init();
 
   const response1 = await bot.send('print(2 + 2)');

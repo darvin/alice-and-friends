@@ -1,2 +1,2 @@
-import { openaiAuth } from './bots/openaiAuth';
+import { openaiAuth } from './config/openaiAuth';
 console.log(openaiAuth);

@@ -1,12 +1,22 @@
 import { Bot, BotError } from './bot';
 import { SubProcess } from 'teen_process';
+import { Expose , Type } from 'class-transformer';
 
-export class REPLBot extends Bot {
-  private process?: SubProcess;
+export class REPLBot implements Bot  {
+  @Expose()
+	name:string 
+  @Expose()
+  path:string
+  @Expose() 
+	argv: string[]
 
-  constructor(public path: string, public argv: string[]) {
-    super();
+  constructor(name: string, path: string, argv: string[]) {
+    this.name = name;
+    this.path = path;
+    this.argv = argv;
   }
+
+  private process?: SubProcess;
 
   async init(): Promise<void> {
     try {

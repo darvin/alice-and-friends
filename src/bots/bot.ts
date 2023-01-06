@@ -1,6 +1,6 @@
 export type BotError = {};
 
-export abstract class Bot {
-  abstract init(): Promise<void>;
-  abstract send(message: string): Promise<string | BotError>;
+export interface Bot {
+  init(): Promise<void>;
+  send(message: string): Promise<string>;
 }

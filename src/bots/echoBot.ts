@@ -1,8 +1,14 @@
 import { Bot, BotError } from './bot';
-export class EchoBot extends Bot {
-  constructor(public name: string) {
-    super();
-  }
+import { Expose , Type } from 'class-transformer';
+
+export class EchoBot implements Bot  {
+  @Expose()
+	name:string
+
+  constructor(name:string){
+    this.name = name;
+  };
+
 
   async init(): Promise<void> {}
 
