@@ -1,1 +1,1 @@
-export * from './botGroup'
+export * from './botGroup';

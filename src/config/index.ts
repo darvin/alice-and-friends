@@ -1,1 +1,1 @@
-export * from './openaiAuth'
+export * from './openaiAuth';

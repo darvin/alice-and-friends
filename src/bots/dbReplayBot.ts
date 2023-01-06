@@ -1,14 +1,13 @@
 import { Bot, BotError } from './bot';
-import { Expose , Type } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 
-
-export class DBReplayBot implements Bot  {
+export class DBReplayBot implements Bot {
   @Expose()
-	name:string
+  name: string;
 
-  constructor(name:string){
+  constructor(name: string) {
     this.name = name;
-  };
+  }
 
   async init(): Promise<void> {}
   async send(message: string): Promise<string> {

@@ -1,14 +1,14 @@
 import { Bot, BotError } from './bot';
 import { SubProcess } from 'teen_process';
-import { Expose , Type } from 'class-transformer';
+import { Expose, Type } from 'class-transformer';
 
-export class REPLBot implements Bot  {
+export class REPLBot implements Bot {
   @Expose()
-	name:string 
+  name: string;
   @Expose()
-  path:string
-  @Expose() 
-	argv: string[]
+  path: string;
+  @Expose()
+  argv: string[];
 
   constructor(name: string, path: string, argv: string[]) {
     this.name = name;
